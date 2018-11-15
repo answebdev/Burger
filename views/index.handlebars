@@ -14,7 +14,7 @@
       {{!-- {{> cats/cat-block sleep=true}} --}}
       <p>{{this.id}}. {{this.burger_name}}</p>
       {{!-- <pre>{{this.id}}. {{this.burger_name}}</pre> --}}
-      <form method="POST" action="/burgers/:id?_method=PUT">
+      <form method="POST" action="/burgers/update?_method=PUT">
         <input type="hidden" name="burger_id" type="text" value={{this.id}}>
         <button type="submit">Devour it!</button>      
       </form>
@@ -22,29 +22,22 @@
   {{/each}}
 </ul>
 
-{{!-- <h2>Cats that are sleepy!</h2>
+<h2>Add a Burger</h2>
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
 
-<h2>Add a Cat</h2>
-<form class="create-form">
 
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
 
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
 
-  <button type="submit">Add Cat</button>
-</form> --}}
+<div class="container main-burger">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="create-form add-burger" action="/" method="POST">
+                <div class="form-group">
+                    {{!-- <label for="burger_name">Burger:</label> --}}
+                    <input type="text" id="burger_name" name="burger" placeholder="Name of Burger">
+                <button type="submit btn-primary">Add burger</button>
+                <p>Enter a burger you'd like to eat.</p>
+            </form>
+        </div>
+    </div>
+</div>

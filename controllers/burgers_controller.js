@@ -21,32 +21,78 @@ router.get("/", function(req, res) {
     // alert("WELCOME TO GET");
 });
 
-// UPDATE ROUTE
-router.put("/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-  
-    console.log("condition", condition);
-  
-    burger.updateOne({
-      devoured: req.body.devoured
-    }, condition, function(result) {
-      if (result.changedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
+// POST ROUTE (ADD A BURGER)
+// router.post("/burgers/create", function(req, res) {
+//     burger.insertOne([
+//       "burger_name", "devoured"
+//     ], [
+//       req.body.name, req.body.devoured
+//     ], function(result) {
+//       // Send back the ID of the new burger
+//       res.json({ id: result.insertId });
+//     });
+//   });
+
+//   router.post('/burgers/create', function (req, res) {
+// 	console.log("CREATE ROUTE WORKING...");
+// 	burger.insertOne('burger_name', [req.body.name], function () {
+// 		res.redirect('/burgers');
+// 	});
+// });
+
+router.post("/", function(req, res) {
+    //console.log(req.params.burger_name);
+    //grabbing burger name to add to the MySQL DB
+    console.log(req.body.burger);
+    burger.insertOne([
+        req.body.burger
+    ], function() {
+        res.redirect("/");
     });
-  });
+});
 
+// router.post("/burgers", function(req, res) {
+//     burger.insertOne(
+//         ["burger_name"], [req.body.burger_name], function() {
+//             res.redirect("/");
+//         });
+//     });
 
-// UPDATE ROUTE
-// router.put("/burgers/", function(req, res) {
-//     burger.updateOne(req.body.burger_id, function(result) {
+// POST ROUTE (ADD A BURGER)
+// router.post("burgers/create", function(req, res) {
+//     burger.insertOne(req.body.burger_id, function(result) {
 //         console.log(result);
 //         res.redirect("/");
 //     })
-// });
+// })
+
+
+// UPDATE ROUTE
+// router.put("/burgers/:id", function(req, res) {
+//     var condition = "id = " + req.params.id;
+  
+//     console.log("condition", condition);
+  
+//     burger.updateOne({
+//       devoured: req.body.devoured
+//     }, condition, function(result) {
+//       if (result.changedRows == 0) {
+//         // If no rows were changed, then the ID must not exist, so 404
+//         return res.status(404).end();
+//       } else {
+//         res.status(200).end();
+//       }
+//     });
+//   });
+
+
+// UPDATE ROUTE
+router.put("/burgers/update", function(req, res) {
+    burger.updateOne(req.body.burger_id, function(result) {
+        console.log(result);
+        res.redirect("/");
+    })
+});
 
 
 

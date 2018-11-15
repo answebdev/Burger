@@ -11,20 +11,61 @@ var connection = require("../config/connection.js");
 // Create the methods that will execute the necessary MySQL commands in the controllers
 // These methods are used to retrieve and store data in the database
 var orm = {
-  selectAll: function(tableInput, cb) {
-    connection.query("SELECT * FROM " + tableInput + ";", function(err, result) {
-      if(err) throw err;
+  selectAll: function (tableInput, cb) {
+    connection.query("SELECT * FROM " + tableInput + ";", function (err, result) {
+      if (err) throw err;
       cb(result);
     })
   },
 
-  updateOne: function(tableInput, condition, cb) {
-    connection.query("UPDATE " + tableInput + "SET devoured=true WHERE id=" + condition + ";", function(err,result) {
-      if(err) throw err;
+  // insertOne: function(tableInput, cols, vals, cb) {
+  //   var queryString = "INSERT INTO " + tableInput;
+
+  //   queryString += " (";
+  //   queryString += cols.toString();
+  //   queryString += ") ";
+  //   queryString += "VALUES (";
+  //   queryString += printQuestionMarks(vals.length);
+  //   queryString += ") ";
+
+  //   console.log(queryString);
+
+  //   connection.query(queryString, vals, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+
+  //     cb(result);
+  //   });
+  // },
+
+  // insertOne: function (tableInput, val, cb) {
+  //   connection.query("INSERT INTO " + tableInput + " (burger_name) VALUES ('" + val + "');", function (err, result) {
+  //     if (err) throw err;
+  //     cb(result);
+  //   });
+  // },
+
+  insertOne: function(tableInput, colName, vals, callback) {
+    var query = "INSERT INTO ?? ( ?? ) VALUES (?)";
+    connection.query(query, [tableInput, colName, vals], function(err, result) {
+        if (err) {
+            throw err;
+        }
+        //console.log("The result is.... in ORM" + result);
+        //console.log("callingback the result");
+        callback(result);
+        //console.log("Insert One completed");
+    });
+},
+
+  updateOne: function (tableInput, condition, cb) {
+    connection.query("UPDATE " + tableInput + "SET devoured=true WHERE id=" + condition + ";", function (err, result) {
+      if (err) throw err;
       cb(result);
     })
   }
-  
+
 }
 
 
