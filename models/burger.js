@@ -11,9 +11,9 @@ var burger = {
     //     orm.insertOne("burgers", name, cb);
     // },
 
-    insertOne: function(vals, callback) {
+    insertOne: function(val, callback) {
         //Inserting a burger into the burgers table
-        orm.insertOne("burgers", "burger_name", vals, function(result) {
+        orm.insertOne("burgers", "burger_name", val, function(result) {
             //console.log("Trying to callback function in models");
             callback(result);
         });

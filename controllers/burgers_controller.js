@@ -10,10 +10,10 @@ var burger = require("../models/burger.js");
 // });
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-    burger.selectAll(function(burgerData) {
+router.get("/", function (req, res) {
+    burger.selectAll(function (burgerData) {
         console.log(burgerData);
-        res.render("index",{burgerData});
+        res.render("index", { burgerData });
         // console.log("Welcome to GET");
         // alert("WELCOME TO GET");
     })
@@ -40,16 +40,23 @@ router.get("/", function(req, res) {
 // 	});
 // });
 
-router.post("/", function(req, res) {
-    //console.log(req.params.burger_name);
-    //grabbing burger name to add to the MySQL DB
+// POST ROUTE (ADD A BURGER)
+router.post("/", function (req, res) {
     console.log(req.body.burger);
     burger.insertOne([
         req.body.burger
-    ], function() {
+    ], function () {
         res.redirect("/");
     });
 });
+
+// UPDATE ROUTE
+router.put("/:id", function (req, res) {
+    burger.updateOne(req.body.devoured, req.params.id, function () {
+        res.redirect("/");
+    });
+});
+
 
 // router.post("/burgers", function(req, res) {
 //     burger.insertOne(
@@ -70,9 +77,9 @@ router.post("/", function(req, res) {
 // UPDATE ROUTE
 // router.put("/burgers/:id", function(req, res) {
 //     var condition = "id = " + req.params.id;
-  
+
 //     console.log("condition", condition);
-  
+
 //     burger.updateOne({
 //       devoured: req.body.devoured
 //     }, condition, function(result) {
@@ -87,12 +94,12 @@ router.post("/", function(req, res) {
 
 
 // UPDATE ROUTE
-router.put("/burgers/update", function(req, res) {
-    burger.updateOne(req.body.burger_id, function(result) {
-        console.log(result);
-        res.redirect("/");
-    })
-});
+// router.put("/burgers/update", function(req, res) {
+//     burger.updateOne(req.body.burger_id, function(result) {
+//         console.log(result);
+//         res.redirect("/");
+//     })
+// });
 
 
 

@@ -11,9 +11,8 @@
 <ul>
   {{#each burgerData}}
     {{#unless this.devoured}}
-      {{!-- {{> cats/cat-block sleep=true}} --}}
-      <p>{{this.id}}. {{this.burger_name}}</p>
-      {{!-- <pre>{{this.id}}. {{this.burger_name}}</pre> --}}
+      <p>{{this.burger_name}}</p>
+      {{!-- <p>{{this.id}}. {{this.burger_name}}</p> --}}
       <form method="POST" action="/burgers/update?_method=PUT">
         <input type="hidden" name="burger_id" type="text" value={{this.id}}>
         <button type="submit">Devour it!</button>      
@@ -23,10 +22,6 @@
 </ul>
 
 <h2>Add a Burger</h2>
-
-
-
-
 
 <div class="container main-burger">
     <div class="row">

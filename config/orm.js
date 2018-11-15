@@ -46,18 +46,15 @@ var orm = {
   //   });
   // },
 
-  insertOne: function(tableInput, colName, vals, callback) {
+  insertOne: function (tableInput, colName, val, cb) {
     var query = "INSERT INTO ?? ( ?? ) VALUES (?)";
-    connection.query(query, [tableInput, colName, vals], function(err, result) {
-        if (err) {
-            throw err;
-        }
-        //console.log("The result is.... in ORM" + result);
-        //console.log("callingback the result");
-        callback(result);
-        //console.log("Insert One completed");
+    connection.query(query, [tableInput, colName, val], function (err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
     });
-},
+  },
 
   updateOne: function (tableInput, condition, cb) {
     connection.query("UPDATE " + tableInput + "SET devoured=true WHERE id=" + condition + ";", function (err, result) {
@@ -65,7 +62,6 @@ var orm = {
       cb(result);
     })
   }
-
 }
 
 
