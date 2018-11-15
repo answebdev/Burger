@@ -56,13 +56,44 @@ var orm = {
     });
   },
 
-  updateOne: function (tableInput, condition, cb) {
-    connection.query("UPDATE " + tableInput + "SET devoured=true WHERE id=" + condition + ";", function (err, result) {
-      if (err) throw err;
-      cb(result);
-    })
-  }
+  // updateOne: function (tableInput, condition, cb) {
+  //   connection.query("UPDATE " + tableInput + "SET devoured=true WHERE id=" + condition + ";", function (err, result) {
+  //     if (err) throw err;
+  //     cb(result);
+  //   })
+  // }
+
+  updateOne: function(tableInput, colName, newInput, colId, pageId, cb) {
+    var query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+    connection.query(query, [tableInput, colName, newInput, colId, pageId], function(err, result) {
+        if (err) {
+            throw err;
+        }
+        cb(result);
+        console.log("Successfully updated!c");
+    });
 }
+
+// updateOne: function(table, objColVals, condition, cb) {
+//   var queryString = "UPDATE " + table;
+
+//   queryString += " SET ";
+//   queryString += objToSql(objColVals);
+//   queryString += " WHERE ";
+//   queryString += condition;
+
+//   console.log(queryString);
+//   connection.query(queryString, function(err, result) {
+//     if (err) {
+//       throw err;
+//     }
+
+//     cb(result);
+//   });
+// }
+
+
+};
 
 
 

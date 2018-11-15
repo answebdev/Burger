@@ -1,8 +1,29 @@
-body {
-    background-color: red;
+h1 {
+    text-align: center;
 }
 
+#eat {
+    text-align: center;
+}
+
+.navbar {
+    justify-content: center;
+    color: #ffffff;
+  }
+
 #burger {
-    width: 25%;
+    width: 85%;
     height: auto;
 }
+
+#burgerDiv {
+    text-align: center;
+}
+
+#devour {
+    display: inline;
+}
+
+/* h3 {
+    text-align: center;
+} */
