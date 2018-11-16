@@ -44,12 +44,13 @@
 
         {{#each burgerData}}
         {{#unless this.devoured}}
-        <p>{{this.burger_name}}
+        <p><button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button>&nbsp; &nbsp; 
+          {{this.burger_name}}
         {{!-- <p>{{this.id}}. {{this.burger_name}}</p> --}}
         {{!-- <form method="POST" action="/burgers/update?_method=PUT"> --}}
           {{!-- <form action="/{{this.id}}" method="PUT">
             <input type="hidden" name="devoured" value="1"> --}}
-            <button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button>
+            {{!-- <button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button> --}}
             {{!-- </form> --}}
         </p>
           {{/unless}}
