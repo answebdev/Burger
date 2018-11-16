@@ -14,7 +14,6 @@ var burger = {
     insertOne: function (val, cb) {
         //Inserting a burger into the burgers table
         orm.insertOne("burgers", "burger_name", val, function (result) {
-            //console.log("Trying to callback function in models");
             cb(result);
         });
     },
@@ -23,11 +22,15 @@ var burger = {
     //     orm.updateOne("burgers", id, cb);
     // }
 
-    updateOne: function (newInput, pageId, cb) {
-        //Updating devoured column to true based on burger ID
-        orm.updateOne("burgers", "devoured", newInput, "id", pageId, function (result) {
-            cb(result);
-        });
+    // updateOne: function (newInput, pageId, cb) {
+    //     //Updating devoured column to true based on burger ID
+    //     orm.updateOne("burgers", "devoured", newInput, "id", pageId, function (result) {
+    //         cb(result);
+    //     });
+    // }
+
+    updateOne: function (id, cb) {
+        orm.updateOne("burgers", id, cb);
     }
 
     // updateOne: function(objColVals, condition, cb) {

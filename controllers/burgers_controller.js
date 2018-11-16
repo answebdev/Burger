@@ -51,12 +51,19 @@ router.post("/burgers", function (req, res) {
 });
 
 // UPDATE ROUTE
-router.put("/:id", function (req, res) {
-    burger.updateOne(req.body.devoured, req.params.id, function () {
+// router.put("/:id", function (req, res) {
+//     burger.updateOne(req.body.devoured, req.params.id, function () {
+//         res.redirect("/");
+//     });
+// });
+
+router.put("/api/:id", function (req, res) {
+    console.log(req.params);
+    burger.updateOne(req.params.id, function (result) {
+        console.log(result);
         res.redirect("/");
     });
 });
-
 
 // router.put("/:id", function(req, res) {
 //     var condition = "id = " + req.params.id;

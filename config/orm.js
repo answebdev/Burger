@@ -63,34 +63,41 @@ var orm = {
   //   })
   // }
 
-  updateOne: function(tableInput, colName, newInput, colId, pageId, cb) {
-    var query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-    connection.query(query, [tableInput, colName, newInput, colId, pageId], function(err, result) {
-        if (err) {
-            throw err;
-        }
-        cb(result);
-        console.log("Successfully updated!c");
-    });
-}
+  //   updateOne: function(tableInput, colName, newInput, colId, pageId, cb) {
+  //     var query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+  //     connection.query(query, [tableInput, colName, newInput, colId, pageId], function(err, result) {
+  //         if (err) {
+  //             throw err;
+  //         }
+  //         cb(result);
+  //         console.log("Successfully updated!c");
+  //     });
+  // }
 
-// updateOne: function(table, objColVals, condition, cb) {
-//   var queryString = "UPDATE " + table;
+  updateOne: function (tableInput, condition, cb) {
+    connection.query("UPDATE " + tableInput + " SET devoured=1 WHERE id=" + condition + ";", function (err, result) {
+      if (err) throw err;
+      cb(result);
+    })
+  }
 
-//   queryString += " SET ";
-//   queryString += objToSql(objColVals);
-//   queryString += " WHERE ";
-//   queryString += condition;
+  // updateOne: function(table, objColVals, condition, cb) {
+  //   var queryString = "UPDATE " + table;
 
-//   console.log(queryString);
-//   connection.query(queryString, function(err, result) {
-//     if (err) {
-//       throw err;
-//     }
+  //   queryString += " SET ";
+  //   queryString += objToSql(objColVals);
+  //   queryString += " WHERE ";
+  //   queryString += condition;
 
-//     cb(result);
-//   });
-// }
+  //   console.log(queryString);
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+
+  //     cb(result);
+  //   });
+  // }
 
 
 };
