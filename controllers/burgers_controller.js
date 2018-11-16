@@ -61,7 +61,8 @@ router.put("/api/:id", function (req, res) {
     console.log(req.params);
     burger.updateOne(req.params.id, function (result) {
         console.log(result);
-        res.redirect("/");
+        // res.redirect("/");
+        res.json('burger updated');
     });
 });
 

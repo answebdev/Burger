@@ -44,13 +44,14 @@
 
         {{#each burgerData}}
         {{#unless this.devoured}}
-        <p>{{this.burger_name}}</p>
+        <p>{{this.burger_name}}
         {{!-- <p>{{this.id}}. {{this.burger_name}}</p> --}}
         {{!-- <form method="POST" action="/burgers/update?_method=PUT"> --}}
           {{!-- <form action="/{{this.id}}" method="PUT">
             <input type="hidden" name="devoured" value="1"> --}}
             <button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button>
             {{!-- </form> --}}
+        </p>
           {{/unless}}
           {{/each}}
 
@@ -73,6 +74,7 @@
     <ul class="list-group">
       
       <li class="list-group-item list-group-item-danger">Burgers that are devoured</li>
+      <li class="list-group-item">
          {{#each burgers}}
             {{#if this.devoured}}
              <p class="eaten">{{this.id}}. {{this.burger_name}}</p>
@@ -82,77 +84,11 @@
       <li class="list-group-item">Morbi leo risus</li>
       <li class="list-group-item">Porta ac consectetur ac</li>
       <li class="list-group-item">Vestibulum at eros</li> --}}
+      </li>
+      </li>
     </ul>
   </div>
 </div>
-
-
-{{!-- <h2>Burgers that are not devoured!</h2> --}}
-
-{{!-- <ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  {{> burgers/burger-block devoured=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-  {{> burgers/burger-block devoured=false}}
-  {{/if}}
-  {{/each}}
-</ul> --}}
-
-{{!-- <ul>
-  {{#each burgerData}}
-  {{#unless this.devoured}}
-  <p>{{this.burger_name}}</p> --}}
-  {{!-- <p>{{this.id}}. {{this.burger_name}}</p> --}}
-  {{!-- <form method="POST" action="/burgers/update?_method=PUT"> --}}
-    {{!-- <form action="/{{this.id}}?_method=PUT" method="POST"></form>
-    <input type="hidden" name="devoured" value="1">
-    <button type="submit">Devour it!</button>
-  </form>
-  {{/unless}}
-  {{/each}}
-  {{#each burgers}}
-  {{#if this.devoured}}
-  <p class="eaten">{{this.id}}. {{this.burger_name}}</p>
-  {{/if}}
-  {{/each}} --}}
-
-  {{!-- {{#each burgers}}
-  {{#unless this.devoured}}
-  <form action="/{{this.id}}?_method=PUT" method="POST">
-    <p class="uneaten">{{this.id}}. {{this.burger_name}}
-      <input type="hidden" name="devoured" value="1">
-      <button class="btn-primary" type="submit">Devour It!</button></p>
-  </form>
-  {{/unless}}
-  {{/each}} --}}
-
-  {{!-- </ul> --}}
-
-
-{{!-- <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <br>
-    <h3>Add a Burger</h3>
-    <div class="row">
-      <div class="col-md-12">
-        <form class="create-form add-burger" action="/burgers" method="POST">
-          <div class="form-group">
-            <input type="text" id="burger_name" name="burger" placeholder="Name of Burger">
-            <button type="submit btn-primary">Add burger</button>
-            <p>Enter a burger you'd like to eat.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4"></div>
-</div> --}}
 
 <br>
 </div>
@@ -161,7 +97,7 @@
 
   // Activate devour button
   $('.devour-button').on('click', function (event) {
-    alert("Devour Button Clicked!");
+    console.log("Devour Button Clicked!");
     event.preventDefault();
 
     var id = $(this).attr("name");
