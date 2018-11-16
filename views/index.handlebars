@@ -27,6 +27,7 @@
       <li class="list-group-item active">Burgers that are not devoured</li>
       <li class="list-group-item">
 
+        {{!-- Render burgers that are not devoured in the browser --}}
         {{#each burgerData}}
         {{#unless this.devoured}}
         <p><button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button>&nbsp; &nbsp; 
@@ -43,9 +44,10 @@
   </div>
   <div class="col-md-4">
     <ul class="list-group">
-      
-      <li class="list-group-item list-group-item-danger">Burgers that are devoured</li>
+      <li class="list-group-item list-group-item-danger">Burgers that have been devoured</li>
       <li class="list-group-item disabled">
+        
+        {{!-- Put the devoured burgers in the devoured area --}}
          {{#each burgerData}}
             {{#if this.devoured}}
              <p>{{this.burger_name}}</p>
