@@ -1,13 +1,6 @@
-{{!-- <p>Connected to server (from index.handlebars file)</p> --}}
-
 <div class="containter">
-
-  {{!-- <h1>Eat-Da-Burger!</h1>
-  <br> --}}
   <br>
   <div class="row">
-
-    {{!-- <div class="col-md-4"></div> --}}
 
     <div class="col-md-4">
 
@@ -22,18 +15,10 @@
           <button type="submit btn-primary" class="btn btn-primary mb-2">Add a burger</button>
         </form>
         <br>
-        {{!--
-      </div> --}}
     </div>
-
   </div>
-
-  {{!-- <div class="col-md-4"></div> --}}
-
 </div>
 <br>
-
-{{!-- <img src="/assets/img/burger.png" id="burger"> --}}
 <br>
 
 <div class="row">
@@ -46,26 +31,11 @@
         {{#unless this.devoured}}
         <p><button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button>&nbsp; &nbsp; 
           {{this.burger_name}}
-        {{!-- <p>{{this.id}}. {{this.burger_name}}</p> --}}
-        {{!-- <form method="POST" action="/burgers/update?_method=PUT"> --}}
-          {{!-- <form action="/{{this.id}}" method="PUT">
-            <input type="hidden" name="devoured" value="1"> --}}
-            {{!-- <button class="btn btn-primary btn-sm devour-button" name="{{this.id}}" type="submit">Devour it!</button> --}}
-            {{!-- </form> --}}
         </p>
           {{/unless}}
           {{/each}}
-
-          {{!-- {{#each burgers}}
-            {{#if this.devoured}}
-             <p class="eaten">{{this.id}}. {{this.burger_name}}</p>
-           {{/if}}
-          {{/each}} --}}
       </li>
       </li>
-      {{!-- <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li> --}}
     </ul>
   </div>
   <div class="col-md-4" id="burgerDiv">
@@ -75,27 +45,12 @@
     <ul class="list-group">
       
       <li class="list-group-item list-group-item-danger">Burgers that are devoured</li>
-      <li class="list-group-item">
+      <li class="list-group-item disabled">
          {{#each burgerData}}
             {{#if this.devoured}}
              <p>{{this.burger_name}}</p>
            {{/if}}
           {{/each}}
-
-
-        {{!-- {{#each burger_data}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
-				  {{/if}}
-			  {{/each}} --}}
-
-
-
-
-      {{!-- <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li> --}}
       </li>
       </li>
     </ul>
@@ -125,10 +80,5 @@
       }
     );
   });
-
-   /* var updatedBurger = {
-      burger: $(".devour-button" name = {{ this.id }});
-    }; /* */
-      
 
 </script>
