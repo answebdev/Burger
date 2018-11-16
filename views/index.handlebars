@@ -75,11 +75,22 @@
       
       <li class="list-group-item list-group-item-danger">Burgers that are devoured</li>
       <li class="list-group-item">
-         {{#each burgers}}
+         {{#each burgerData}}
             {{#if this.devoured}}
-             <p class="eaten">{{this.id}}. {{this.burger_name}}</p>
+             <p>{{this.burger_name}}</p>
            {{/if}}
           {{/each}}
+
+
+        {{!-- {{#each burger_data}}
+			  	{{#if this.devoured}}
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+				  {{/if}}
+			  {{/each}} --}}
+
+
+
+
       {{!-- <li class="list-group-item">Dapibus ac facilisis in</li>
       <li class="list-group-item">Morbi leo risus</li>
       <li class="list-group-item">Porta ac consectetur ac</li>
