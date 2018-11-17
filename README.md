@@ -23,7 +23,7 @@ This burger logger uses MySQL, Node, Express, Handlebars, and a homemade ORM. Bo
 
 "Eat-Da-Burger!" is deployed to Heroku. Please check it out here:
 
-https://nameless-stream-53223.herokuapp.com/
+https://radiant-island-72390.herokuapp.com/
 
 # Screenshots
 
