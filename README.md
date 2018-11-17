@@ -29,4 +29,4 @@ https://nameless-stream-53223.herokuapp.com/
 
 ![Screenshot 01](screenshots/burgerApp-screenshot.png "Home Page")
 
-![Screenshot 02](screenshots/friend-finder-demo.gif "Demo")
+![Screenshot 02](screenshots/burgerAppDemo.gif "Demo")
